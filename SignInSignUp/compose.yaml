@@ -1,0 +1,16 @@
+services:
+  db:
+    image: mcr.microsoft.com/mssql/server:2025-latest
+    environment:
+      - ACCEPT_EULA=Y
+      - MSSQL_PID=Express
+      - MSSQL_SA_PASSWORD=8d9uhNTrJPHM9QW!
+
+  web:
+    build: .
+    ports:
+      - "8080:8080"
+    environment:
+      - ConnectionStrings__DefaultConnection=Server=db;Database=aspnet-SignInSignUp-f328bbe2-124e-41d3-a247-bf5c7032ea87;User Id=sa;Password=8d9uhNTrJPHM9QW!;TrustServerCertificate=True
+    depends_on:
+      - db
