@@ -9,7 +9,7 @@ services:
   web:
     build: .
     ports:
-      - "8080:8080"
+      - "8080:80"
     environment:
       - ConnectionStrings__DefaultConnection=Server=db;Database=aspnet-SignInSignUp-f328bbe2-124e-41d3-a247-bf5c7032ea87;User Id=sa;Password=8d9uhNTrJPHM9QW!;TrustServerCertificate=True
     depends_on:
