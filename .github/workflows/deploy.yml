@@ -5,6 +5,11 @@ on:
     branches: [ master ]
 
 jobs:
+  check-user:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Who am I?
+        run: whoami
   build-and-push:
     runs-on: ubuntu-latest
     steps:
