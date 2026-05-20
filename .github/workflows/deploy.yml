@@ -24,7 +24,7 @@ jobs:
       - name: Build and push
         run: |
           docker compose build --push
-        working-directory: ./SignInSignUp
+        working-directory: SignInSignUp
 
   deploy:
     needs: build-and-push
