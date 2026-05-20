@@ -22,12 +22,13 @@ jobs:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
 
-      - name: Build multi-stage images
-        run: docker compose build
-        with:
-          file: SignInSignUp/compose.yaml
-          push: true
-          tags: ${{ secrets.DOCKERHUB_USERNAME }}/my-app:latest
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      - name: Build and push
+        context: ./SignInSignUp
+        run: |
+          docker compose build --push
 
   deploy:
     needs: build-and-push
