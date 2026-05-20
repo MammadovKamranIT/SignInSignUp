@@ -8,6 +8,7 @@ services:
 
   web:
     build: .
+    image: mkamran7/SignInSignUp_app:latest
     ports:
       - "8080:80"
     environment:
