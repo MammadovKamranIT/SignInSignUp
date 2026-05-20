@@ -43,7 +43,7 @@ jobs:
             fi
             cd my-app
             
-            git pull origin main     
+            git pull origin master     
             
             cd SignInSignUp
             docker-compose down
