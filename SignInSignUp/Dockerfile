@@ -1,6 +1,6 @@
 FROM mcr.microsoft.com/dotnet/sdk:10.0 AS build
 WORKDIR /src
-COPY ["SignInSignUp/SignInSignUp.csproj", "./"]
+COPY ["SignInSignUp.csproj", "./"]
 RUN dotnet restore
 COPY . .
 RUN dotnet publish -c Release -o /app
