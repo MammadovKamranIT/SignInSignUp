@@ -22,10 +22,9 @@ jobs:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
 
-      - name: Build and Push Image
-        uses: docker/build-push-action@v4
+      - name: Build multi-stage images
+        run: docker compose build
         with:
-          context: .
           file: SignInSignUp/compose.yaml
           push: true
           tags: ${{ secrets.DOCKERHUB_USERNAME }}/my-app:latest
